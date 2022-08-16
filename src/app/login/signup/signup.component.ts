@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { UserService } from '../../services/user.service';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
+import { SignupService } from './../../services/signup.service';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-signup',
@@ -16,7 +18,8 @@ export class SignupComponent implements OnInit {
     private myHTTP: HttpClient,
     private service: UserService,
     private msgService: MessageService,
-    private router:Router
+    private router:Router,
+    private signupservice: SignupService
   ) {}
 
   usersList: any[] = [];
@@ -25,14 +28,14 @@ export class SignupComponent implements OnInit {
   private myURL = 'http://localhost:3000/users';
 
   ngOnInit(): void {
-    this.myHTTP.get(this.myURL).subscribe((response: any) => {
+    /*this.myHTTP.get(this.myURL).subscribe((response: any) => {
       console.log(response);
       this.usersList = response;
-    });
+    });*/
   }
 
   onSubmit(f: NgForm) {
-    if(!f.value.email || !f.value.password || !f.value.username || !f.value.pass2)
+    if(!f.value.email || !f.value.password || !f.value.fullName || !f.value.pass2)
     {
       this.msgService.add({
         severity: 'error',
@@ -40,14 +43,14 @@ export class SignupComponent implements OnInit {
         detail: 'Fill all fields',
       });
     }
-    else if(this.checkIfUserAlreadyExists(f.value.email))
+    /*else if(this.checkIfUserAlreadyExists(f.value.email))
     {
       this.msgService.add({
         severity: 'error',
         summary: 'Error',
         detail: 'There is an existing account with this email. Did you mean to login?',
       });
-    }
+    }*/
     else if(!this.validateEmail(f.value.email))
     {
       this.msgService.add({
@@ -59,10 +62,25 @@ export class SignupComponent implements OnInit {
     else if (f.value.password === f.value.pass2) 
     {
         delete f.value.pass2;
-        this.service
+        /*this.service
           .create(f.value)
-          .subscribe((data) => this.usersList.push(data));
-        this.valid=true;    
+          .subscribe((data) => this.usersList.push(data));*/
+          this.myHTTP.post('https://coffee-menu123.herokuapp.com/api/authentication/create',f.value)
+          .subscribe(
+            (data)=>{
+              console.log(data);
+              this.valid=true;  
+            },
+            (error)=>{
+              if(error instanceof HttpErrorResponse && error.status === 400){
+                this.msgService.add({
+                  severity: 'error',
+                  summary: 'Error',
+                  detail: error.error,
+                });
+                console.log(error.error)
+              }});
+        
     } 
     else if (f.value.password !== f.value.pass2) {
         this.msgService.add({
@@ -92,7 +110,7 @@ export class SignupComponent implements OnInit {
   
   }
 
-  checkIfUserAlreadyExists(email:string)
+  /*checkIfUserAlreadyExists(email:string)
   {
     for(let user of this.usersList)
     {
@@ -100,6 +118,6 @@ export class SignupComponent implements OnInit {
         return true;
     }
     return false;
-  }
+  }*/
 
 }

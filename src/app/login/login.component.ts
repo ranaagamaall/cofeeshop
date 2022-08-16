@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { userData } from './userData';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
@@ -26,33 +26,67 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.myHTTP.get(this.myURL).subscribe((response: any) => {
+    /*this.myHTTP.get(this.myURL).subscribe((response: any) => {
       console.log(response);
       this.usersList = response;
-    });
+    });*/
   }
 
-  handleLogin() 
-  {    
-    for (let user of this.usersList) {
+  handleLogin() {
+    
+    /*for (let user of this.usersList) {
       if (user.email === this.email) {
         this.exsistingUser=true;
         if (user.password === this.password) {
           this.correctPassword = true;
           this.router.navigate(['../main']);
           console.log(this.router.url);        }
+        }
+      }*/
+      
+      if (!this.email || !this.password) {
+        this.msgService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Fill all fields',
+        });
       }
+      else
+      {
+      let data = {
+        email: this.email,
+        password: this.password,
+      };
+  
+      this.myHTTP
+        .post(
+          'https://coffee-menu123.herokuapp.com/api/authentication/login',
+          data
+        )
+        .subscribe(
+          (response) => {
+            let data = JSON.stringify(response);
+            let data2 = data.split(':');
+            let accessToken = data2[data2.length - 1];
+            accessToken = accessToken.slice(1,accessToken.length - 2);
+            localStorage.setItem('accessToken',accessToken);
+            this.router.navigate(['../main']);
+          },
+          (error) => {
+            if (error instanceof HttpErrorResponse) {
+              if (error.status === 401) {
+                this.msgService.add({
+                  severity: 'error',
+                  summary: 'Error',
+                  detail: 'No existing account for this user',
+                });
+              }
+              console.log(error);
+            }
+          }
+        );
     }
-    
-    if(!this.email || !this.password)
-    {
-      this.msgService.add({
-        severity: 'error',
-        summary: 'Error',
-        detail: 'Fill all fields'
-      });
-    }
-    else if (!this.exsistingUser && !this.correctPassword)
+    /*else if (!this.exsistingUser && !this.correctPassword)
     {      
       this.msgService.add({
         severity: 'error',
@@ -66,7 +100,7 @@ export class LoginComponent implements OnInit {
         summary: 'Error',
         detail: 'Invalid email or password'
       });
-    }
+    }*/
   }
 
   handleSignup() {
