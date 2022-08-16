@@ -1,0 +1,34 @@
+<div class="whole">
+    <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6 container">
+        <div class="text-center mb-5">
+            <div class="text-900 text-3xl mb-3 title">Create an account</div>
+        </div>
+
+        <div class="form">
+            <form #f="ngForm" (ngSubmit)= "onSubmit(f)" >
+            <div>
+                <label for="email1" class="block text-900  mb-2">Email</label>
+                <input name="email" id="email1" type="string" required pInputText class="w-full mb-3" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel>
+            </div>
+
+            <div>
+                <label for="username1" class="block text-900  mb-2">Username</label>
+                <input name="username" id="username1" type="text" required pInputText class="w-full mb-3" ngModel> 
+            </div>
+
+            <div>
+                <label for="password1" class="block text-900  mb-2">Password</label>
+                <input name="password" id="password1" type="password" required pInputText class="w-full mb-3" ngModel> 
+            </div>
+
+            <div>
+                <label for="password2" class="block text-900  mb-2">Repeat Password</label>
+                <input name="pass2" id="password2" type="password" required pInputText class="w-full mb-3" ngModel>
+            </div>
+            <p-toast></p-toast>
+
+            <button pButton pRipple label="Sign Up" icon="pi pi-user" class="w-full" type="submit"></button>
+        </form>
+        </div>
+    </div>
+</div>

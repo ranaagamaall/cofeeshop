@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<div >
+  <a *ngFor = "let item of navItems; last as l" 
+  [class.left]="l"
+  [class.active]="item.IsActive"          
+  (click)="HandleClick(item)" 
+  [routerLink] ="item.command" >    <!-- navigation handling -->  
+  <i *ngIf="item.icon !=null" [class]="item.icon"></i>
+  {{item.header}}
+</a>
+</div>
+
+</body>
+</html>
+
+

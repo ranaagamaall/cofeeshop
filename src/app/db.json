@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "Rana",
+      "email": "rana@test.com",
+      "password": "1"
+    },
+    {
+      "id": 2,
+      "username": "Ahmed",
+      "email": "ahmed@test.com",
+      "password": "2"
+    },
+    {
+      "id": 3,
+      "username": "Samar",
+      "email": "samar@test.com",
+      "password": "3"
+    },
+    {
+      "email": "a",
+      "username": "a",
+      "password": "a",
+      "id": 4
+    },
+    {
+      "email": "a",
+      "username": "a",
+      "password": "c",
+      "id": 5
+    }
+  ],
+
+  "items":[
+    {
+      "id": "1",
+      "img": "",
+      "name": "",
+      "price": ""
+    }
+  ]
+
+}
+
+
+
+
