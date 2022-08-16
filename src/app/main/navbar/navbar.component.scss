@@ -1,35 +1,35 @@
 div {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 1px solid #e7e7e7;
-    background-color: #f3f3f3;
-  }
-  
-  li {
-    float: left;
-  }
-  
-  a {
-    display: block;
-    float: left;
-    color: #666;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-   a:hover:not(.active) {
-    background-color: #ddd;
-  }
-  
-   a.active {
-    color: white;
-    background-color: #7D1E6A;
-  }
-  
-  a.left{
-    position: fixed;
-    right: 0;
-  }
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #e7e7e7;
+  background-color: #68A7AD;
+}
+
+li {
+  float: left;
+}
+
+a {
+  display: block;
+  float: left;
+  color: #fffbf4;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+a:hover:not(.active) {
+  background-color: #83bdc3;
+}
+
+a.active {
+  color: white;
+  background-color: #3d868e;
+}
+
+a.left {
+  position: fixed;
+  right: 0;
+}

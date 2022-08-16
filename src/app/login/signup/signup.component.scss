@@ -6,7 +6,7 @@ div.form{
     min-height: 84vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 // fonts
@@ -39,11 +39,14 @@ input:hover{
     border-color:#d6ab74 !important;
 }
 
-// input:focus{
-//     border-color:#d6ab74 !important;
-//     border-width: 3px;
-// }
+.p-inputtext:enabled:focus{
+    border-color: #d6ab74;
+    box-shadow: none;
+}
 
+button:focus{
+    box-shadow: none;
+}
 
 div.whole{
     background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('/assets/pattern.png');

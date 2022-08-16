@@ -4,13 +4,14 @@ import { MainRoutingModule } from './main-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MainComponent } from './main.component';
 import { MenuModule } from './menu/menu.module';
+import { HomeComponent } from './home/home.component';
 
 
 
 
 @NgModule({
   declarations: [NavbarComponent, 
-  MainComponent],
+  MainComponent, HomeComponent],
   imports: [
     CommonModule,
     MainRoutingModule,

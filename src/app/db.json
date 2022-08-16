@@ -29,20 +29,154 @@
       "username": "a",
       "password": "c",
       "id": 5
+    },
+    {
+      "email": "mary@test.com",
+      "username": "mary",
+      "password": "111",
+      "id": 6
     }
   ],
-
-  "items":[
+  "items": [
     {
       "id": "1",
-      "img": "",
-      "name": "",
-      "price": ""
+      "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2011/10/5/1/FNM_110111-WN-Desserts-004_s4x3.jpg.rend.hgtvcom.826.620.suffix/1371600520701.jpeg",
+      "name": "Affogato",
+      "price": 10,
+      "description": "Espresso poured on a vanilla ice cream"
+    },
+    {
+      "id": "2",
+      "image": "https://homebru.co/content/tcmphotography-13.jpg",
+      "name": "Americano",
+      "price": 2,
+      "description": "Espresso with added hot water"
+    },
+    {
+      "id": "3",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Caffe_Latte.jpg",
+      "name": "Caffè Latte",
+      "price": 2,
+      "description": "An espresso with steamed milk"
+    },
+    {
+      "id": "4",
+      "image": "https://images.contentstack.io/v3/assets/blt068dbc54bf4fc7ed/blt2ff7364b36927f16/5e5d5ce6ee81cf06def8e2e9/7ELV-20-Web-Mocha.jpg",
+      "name": "Caffè Mocha",
+      "price": 2,
+      "description": "A caffè latte with chocolate and whipped cream"
+    },
+    {
+      "id": "5",
+      "image": "https://alwaystheholidays.com/wp-content/uploads/2021/02/how-to-make-a-cafe-au-lait-recipe.jpg",
+      "name": "Cafè Au Lait",
+      "price": 10,
+      "description": "Coffee with warm milk"
+    },
+    {
+      "id": "6",
+      "image": "https://www.thespruceeats.com/thmb/_i45-c32DR8EZm_tTD9qSb5QAvk=/940x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/how-to-make-cappuccinos-766116-hero-01-a754d567739b4ee0b209305138ecb996.jpg",
+      "name": "Cappuccino",
+      "price": 10,
+      "description": "A coffee drink consisting of espresso and a milk foam mixture"
+    },
+    {
+      "id": "7",
+      "image": "https://www.everydaycheapskate.com/wp-content/uploads/cold-brew-iced-coffee.jpg",
+      "name": "Cold Brew Coffee",
+      "price": 10,
+      "description": "Cold beverage prepared by brewing freshly ground coffee in cold water"
+    },
+    {
+      "id": "8",
+      "image": "https://media-cdn.tripadvisor.com/media/photo-s/1c/61/19/21/double-espresso-kinda.jpg",
+      "name": "Double Espresso",
+      "price": 10,
+      "description": "Double portion of espresso"
+    },
+    {
+      "id": "9",
+      "image": "https://images.pexels.com/photos/685527/pexels-photo-685527.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "name": "Espresso",
+      "price": 3,
+      "description": "A shot of espresso"
+    },
+    {
+      "id": "10",
+      "image": "https://media.istockphoto.com/photos/espresso-con-panna-background-concept-picture-id890764536?k=20&m=890764536&s=612x612&w=0&h=ivuaSNMptob11NTqLCtmLRZ1cAO9POp3o-yzg_UpRt0=",
+      "name": "Espresso Con Panna",
+      "price": 1,
+      "description": "A shot of espresso topped with whipped cream"
+    },
+    {
+      "id": "11",
+      "image": "https://aboveaveragecoffee.com/wp-content/uploads/2021/05/Espresso-Macchiato-What-it-is-how-to-make-it-how-it-tastes.jpg",
+      "name": "Espresso Macchiato",
+      "price": 4,
+      "description": "Espresso with a little milk foam"
+    },
+    {
+      "id": "12",
+      "image": "https://cdn.shopify.com/s/files/1/0279/6329/3831/products/flat_white_grande.jpg?v=1580535645",
+      "name": "Flat White",
+      "price": 10,
+      "description": "A coffee drink with a double espresso and lightly frosted milk"
+    },
+    {
+      "id": "13",
+      "image": "https://food.fnr.sndimg.com/content/dam/images/food/fullset/2018/4/5/0/LS-Library_Blended-Coffee-Frappe_s4x3.jpg.rend.hgtvcom.406.305.suffix/1522779310869.jpeg",
+      "name": "Frappè",
+      "price": 10,
+      "description": "Rich iced coffee made of espresso, milk and ice"
+    },
+    {
+      "id": "14",
+      "image": "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=face&w=750&h=375&url=https%3A%2F%2Fassets.marthastewart.com%2Fstyles%2Fwmax-750%2Fd37%2Fshake-it-up-iced-latte-0617-102980815%2Fshake-it-up-iced-latte-0617-102980815_horiz.jpg%3Fitok%3DYSruOWrO",
+      "name": "Iced Latte",
+      "price": 10,
+      "description": "Ice, cold milk and an espresso"
+    },
+    {
+      "id": "15",
+      "image": "https://bakingmischief.com/wp-content/uploads/2019/05/iced-mocha-image-square-500x375.jpg",
+      "name": "Iced Mocha",
+      "price": 10,
+      "description": "Cold Caffè mocha"
+    },
+    {
+      "id": "16",
+      "image": "https://pullandpourcoffee.com/wp-content/uploads/2021/07/starbucks-copycat-iced-caramel-macchiato-1.jpg",
+      "name": "Iced Macchiato",
+      "price": 10,
+      "description": "Like a traditional caffè latte, but with a thicker layer of foam"
+    },
+    {
+      "id": "17",
+      "image": "https://www.kaffee-partner.de/assets/images/2/espresso-lungo-auf-tisch-eaac7ab0.jpg",
+      "name": "Lungo",
+      "price": 5,
+      "description": "An espresso pulled long"
+    },
+    {
+      "id": "18",
+      "image": "https://teacoffee.nutriarena.com/PImg/Red-Eye-Coffee1054Normal_200.jpg",
+      "name": "Red Eye",
+      "price": 10,
+      "description": "Drip-filter coffee topped with an espresso shot"
+    },
+    {
+      "id": "19",
+      "image": "https://blogstudio.s3.theshoppad.net/coffeeheroau/10897ed60052f2aa1a495aa1c02a8ce6.jpg",
+      "name": "Ristretto",
+      "price": 2,
+      "description": "A very short shot of espresso"
+    },
+    {
+      "id": "20",
+      "image": "https://www.homegrounds.co/wp-content/uploads/2019/08/turkish-coffee-photo-1-225x225.jpg",
+      "name": "Turkish Coffee",
+      "price": 4,
+      "description": "Fine grind coffee + water"
     }
   ]
-
 }
-
-
-
-

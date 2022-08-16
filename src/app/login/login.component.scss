@@ -24,10 +24,18 @@ button:hover{
     background-color: #d6ab74 !important;
 }
 
-input:hover{
-    border-color:#d6ab74 !important;
+.p-inputtext:enabled:focus{
+    border-color: #d6ab74;
+    box-shadow: none;
 }
 
+input:hover{
+    border-color: #d6ab74 !important;
+}
+
+button:focus{
+    box-shadow: none;
+}
 
 div.whole{
     background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('/assets/pattern.png');
@@ -36,6 +44,7 @@ div.whole{
 }
 div.container{
     margin: auto;
+    // background-color: #fffbf4 !important;
 }
 
 div.title{

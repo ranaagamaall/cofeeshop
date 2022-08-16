@@ -1,6 +1,7 @@
-export interface menuItem{
+export interface menuItem extends Record<string, any>{
     id: number;
-    img: string;
+    image: string;
     name: string;
     price: number;
+    description?: string;
 }
