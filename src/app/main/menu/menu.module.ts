@@ -25,8 +25,7 @@ import { MenuComponent } from './menu.component';
     InputTextModule,
     RatingModule,
     DropdownModule,
-    TabViewModule,
-   
+    TabViewModule
   ]
 })
 export class MenuModule { }
