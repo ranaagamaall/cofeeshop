@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {navData} from './navData';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,7 @@ import {navData} from './navData';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   @Input()
   navItems : Array<navData>=[];
@@ -18,10 +19,11 @@ export class NavbarComponent implements OnInit {
   }
 
   HandleClick(item: any){
-    for(let i = 0; i<(this.navItems.length); i++){
-      this.navItems[i].IsActive = false;
+    if(item.header === 'Log Out')
+    {
+      localStorage.clear();
+      this.router.navigate(['../../login'])
     }
-    item.IsActive=true;
     
   }
 

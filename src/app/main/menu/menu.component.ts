@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 import { MenuService } from 'src/app/services/menu.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { menuItem } from './menuItem';
 @Component({
   selector: 'app-menu',
@@ -21,10 +21,19 @@ export class MenuComponent implements OnInit {
   constructor(private myHTTP: HttpClient, private service: MenuService) {}
 
   ngOnInit() {
-    this.myHTTP.get(this.myURL).subscribe((response: any) => {
-      console.log(response);
-      this.itemsList = response;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
     });
+
+  const requestOptions = { headers: headers };
+
+    this.myHTTP
+      .get('https://coffee-menu123.herokuapp.com/api/products/all', requestOptions)
+      .subscribe((response: any) => {
+        console.log(response);
+        this.itemsList = response;
+      });
     this.sortOptions = [
       { label: 'Price High to Low', value: '!price' },
       { label: 'Price Low to High', value: 'price' },
@@ -45,5 +54,4 @@ export class MenuComponent implements OnInit {
     }
     console.log(this.sortField);
   }
-
 }

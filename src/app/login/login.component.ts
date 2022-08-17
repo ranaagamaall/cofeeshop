@@ -78,7 +78,7 @@ export class LoginComponent implements OnInit {
                 this.msgService.add({
                   severity: 'error',
                   summary: 'Error',
-                  detail: 'No existing account for this user',
+                  detail: 'Invalid email or password',
                 });
               }
               console.log(error);
