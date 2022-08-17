@@ -6,15 +6,13 @@ import { MainComponent } from './main.component';
 import { MenuModule } from './menu/menu.module';
 import { HomeComponent } from './home/home.component';
 import { ButtonModule } from 'primeng/button';
-import { ModalComponent } from './Modal/modal/modal.component';
-
 
 
 
 
 @NgModule({
   declarations: [NavbarComponent, 
-  MainComponent, HomeComponent, ModalComponent],
+  MainComponent, HomeComponent],
   imports: [
     CommonModule,
     MainRoutingModule,
