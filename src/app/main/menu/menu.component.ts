@@ -186,7 +186,7 @@ export class NgbdModalContent implements OnInit {
 
   unhover(element: any, image: string) {
     element.setAttribute('src', image);
-        this.aPrice += 0.5;
+        
   }
 
   hoverSugar(element: any) {
@@ -204,20 +204,19 @@ export class NgbdModalContent implements OnInit {
     if (element.srcElement === document.getElementById('caramel')) {
       if (element.srcElement.src.endsWith('caramel')) {
         element.srcElement.setAttribute('src', './assets/caramelhover');
+        this.aPrice += 0.5;
       } else {
         element.srcElement.setAttribute('src', './assets/caramel');
-        this.aPrice += 1;
+        this.aPrice -= 0.5;
       }
     } else {
       if (element.srcElement.src.endsWith('milk')) {
         element.srcElement.setAttribute('src', './assets/milkhover');
+        this.aPrice += 1;
       } else {
         element.srcElement.setAttribute('src', './assets/milk');
         this.aPrice -= 1;
       }
-=======
-  unhover(element: any, image: string) {
-    element.setAttribute('src', image);
     }
     this.tPrice = this.cPrice + this.aPrice;
   }
