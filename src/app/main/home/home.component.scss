@@ -1,0 +1,60 @@
+img.cup{
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    height: 100%;
+    width: 50%;
+}
+
+img.texture{
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    height: 100%;
+}
+
+.container{
+    min-height: 93vh;
+    background-color: #c39976c9;
+    opacity: 90%;
+}
+
+.circle{
+    background: #fffbf4;
+    border-radius: 50%;
+    width: 75vh;
+    height: 73vh;    
+    position: relative;
+    top: 77px;
+    left: 60px;
+    box-shadow: 1px 1px 40px 4px rgba(115,114,114,0.75);
+    -webkit-box-shadow: 1px 1px 40px 4px rgba(115,114,114,0.75);
+    -moz-box-shadow: 1px 1px 40px 4px rgba(115,114,114,0.75);
+    padding: 25vh 7vh;
+    text-align: center;
+    z-index: 1;
+}
+
+.title{
+    font-family: 'Aboreto', cursive;
+    letter-spacing: 3px;
+    color: #a2845e;
+    font-size: 4rem;
+    margin: 0;
+}
+
+.slogan{
+    font-family: 'Merriweather Sans', sans-serif;
+    font-weight: 400;
+    color: #6c420c;
+}
+
+.download{
+    margin: 10px 6px !important;
+}
+
+.shop{
+    position: absolute;
+    top: 10%;
+    right: 5%;
+}

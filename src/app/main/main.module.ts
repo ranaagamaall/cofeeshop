@@ -5,6 +5,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MainComponent } from './main.component';
 import { MenuModule } from './menu/menu.module';
 import { HomeComponent } from './home/home.component';
+import { ButtonModule } from 'primeng/button';
+
 
 
 
@@ -15,7 +17,8 @@ import { HomeComponent } from './home/home.component';
   imports: [
     CommonModule,
     MainRoutingModule,
-    MenuModule
+    MenuModule,
+    ButtonModule
   ],
   exports: [NavbarComponent,
     MainComponent]
