@@ -9,7 +9,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   selector: 'ngbd-modal-content',
   template: `
     <div class="modal-header">
-      <img [src]="name.image" class="imgForModal">
+      <img [src]="name.image" class="imgForModal" />
       <div>
         <div>
           <h3 class="modal-title">{{ name.name }}</h3>
@@ -26,51 +26,103 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
       ></button>
     </div>
     <div class="modal-body">
-    <div class="sizeContainer">
-      <h5>Item Count</h5>
+      <div class="sizeContainer">
+        <div>
+          <div>
+            <h5>Item count</h5>
+          </div>
+          <div>
+            <span>$</span>
+            <span>{{ name.price }}</span>
+          </div>
+        </div>
+
+        <div class="countControllers">
+          <button icon="pi pi-minus" [disabled]= "this.disabled" type="button" class="p-button-outlined p-button-rounded p-button-warning p-button" (click)="dec()">
+            -
+          </button>
+          <div>
+            {{this.itemcount}}
+          </div>
+          <button icon="pi pi-plus" type="button" class="p-button-outlined p-button-rounded p-button-warning p-button" (click)="inc()">
+            +
+          </button>
+        </div>
       </div>
       <div class="sizeContainer">
-      <h5>Size</h5>
-      <div class="Sizes">
-        <img id="s" class="small" src="./assets/coffeecup" 
-          (click)="hover($event)"/>
-        <img id="m" class="medium" src="./assets/coffeecup" (click)="hover($event)">
-        <img id="l" class="large" src="./assets/coffeecup" (click)="hover($event)">
+        <h5>Size</h5>
+        <div class="Sizes">
+          <img
+            id="s"
+            class="small"
+            src="./assets/coffeecup"
+            (click)="hover($event)"
+          />
+          <img
+            id="m"
+            class="medium"
+            src="./assets/coffeecup"
+            (click)="hover($event)"
+          />
+          <img
+            id="l"
+            class="large"
+            src="./assets/coffeecup"
+            (click)="hover($event)"
+          />
+        </div>
       </div>
-    </div>
-    <div class="sizeContainer">
-      <h5>Sugar</h5>
-      <div class="Sizes">
-        <img id="ns" class="large" src="./assets/nosugar" 
-          (click)="hoverSugar($event)"/>
-        <img id="ws" class="large" src="./assets/withsugar" (click)="hoverSugar($event)">
+      <div class="sizeContainer">
+        <h5>Sugar</h5>
+        <div class="Sizes">
+          <img
+            id="ns"
+            class="large"
+            src="./assets/nosugar"
+            (click)="hoverSugar($event)"
+          />
+          <img
+            id="ws"
+            class="large"
+            src="./assets/withsugar"
+            (click)="hoverSugar($event)"
+          />
+        </div>
       </div>
-    </div>
-    <div class="sizeContainer">
-      <h5>Additions</h5>
-      <div class="Sizes">
-        <img id="caramel" class="large" src="./assets/caramel" 
-          (click)="hoverAdditions($event)"/>
-        <img id="milk" class="large" src="./assets/milk" (click)="hoverAdditions($event)">
+      <div class="sizeContainer">
+        <h5>Additions</h5>
+        <div class="Sizes">
+          <img
+            id="caramel"
+            class="large"
+            src="./assets/caramel"
+            (click)="hoverAdditions($event)"
+          />
+          <img
+            id="milk"
+            class="large"
+            src="./assets/milk"
+            (click)="hoverAdditions($event)"
+          />
+        </div>
       </div>
-    </div>
-    <div class="sizeContainer">
-      <h3>Total</h3>
+      <div class="sizeContainer">
+        <h3>Total</h3>
       <h4 class="large" id="price"><span>$</span>{{this.tPrice}}</h4>
       
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="p-element p-ripple p-button-outlined p-button-rounded p-button-warning p-button p-component"
+          (click)="activeModal.close('Close click')"
+        >
+          Add
+        </button>
+      </div>
     </div>
-  </div>
-  <div class="modal-footer">
-    <button
-    type="button"
-    class="p-element p-ripple p-button-outlined p-button-rounded p-button-warning p-button p-component"
-    (click)="activeModal.close('Close click')"
-    >
-    Add
-  </button>
-</div>
-`,
-styleUrls:['./menu.component.scss']
+  `,
+  styleUrls: ['./menu.component.scss'],
 })
 export class NgbdModalContent implements OnInit {
   @Input() name: any;     //product element
@@ -81,6 +133,11 @@ export class NgbdModalContent implements OnInit {
   tPrice: number =0;      //accumulator for item price upon customization
 
 
+  itemcount:number=1;
+
+  disabled:boolean=false;
+
+
   constructor(public activeModal: NgbActiveModal) {}
 
   ngOnInit(): void {
@@ -89,14 +146,12 @@ export class NgbdModalContent implements OnInit {
     // this.cPrice =0;
   }
   
-  hover(element:any)
-  {
-    let ids = ['s','m','l']
-    for(let id of ids)
-    {
-      this.unhover(document.getElementById(id),'./assets/coffeecup');
+  hover(element: any) {
+    let ids = ['s', 'm', 'l'];
+    for (let id of ids) {
+      this.unhover(document.getElementById(id), './assets/coffeecup');
     }
-    element.srcElement.setAttribute('src','./assets/coffeecuphover');
+    element.srcElement.setAttribute('src', './assets/coffeecuphover');
     const elId : string =element.srcElement.getAttribute('id');
     
     if( elId == 'l'){
@@ -113,52 +168,56 @@ export class NgbdModalContent implements OnInit {
     this.tPrice = this.cPrice + this.aPrice;
   }
 
-  unhover(element:any,image:string)
-  {
-    element.setAttribute('src',image);
+  inc(){
+    this.itemcount++;
+    this.disabled=false;
   }
 
-  hoverSugar(element:any)
-  {
-    if(element.srcElement === document.getElementById('ns'))
+  dec(){
+    if(this.itemcount !== 1)
     {
-      this.unhover(document.getElementById('ws'),'./assets/withsugar');
-      element.srcElement.setAttribute('src','./assets/nosugarhover');
+      this.itemcount--;
     }
-    else
+    if(this.itemcount === 1)
     {
-      this.unhover(document.getElementById('ns'),'./assets/nosugar');
-      element.srcElement.setAttribute('src','./assets/withsugarhover');
+      this.disabled=true;
     }
   }
 
-  hoverAdditions(element:any)
-  {
-    if(element.srcElement === document.getElementById('caramel'))
-    {
-      if(element.srcElement.src.endsWith('caramel'))
-      {
-        element.srcElement.setAttribute('src','./assets/caramelhover');
+  unhover(element: any, image: string) {
+    element.setAttribute('src', image);
         this.aPrice += 0.5;
-      }
-      else
-      {
-        element.srcElement.setAttribute('src','./assets/caramel'); 
+  }
+
+  hoverSugar(element: any) {
+    if (element.srcElement === document.getElementById('ns')) {
+      this.unhover(document.getElementById('ws'), './assets/withsugar');
+      element.srcElement.setAttribute('src', './assets/nosugarhover');
+    } else {
+      this.unhover(document.getElementById('ns'), './assets/nosugar');
+      element.srcElement.setAttribute('src', './assets/withsugarhover');
         this.aPrice -= 0.5;
-      }
     }
-    else
-    {
-      if(element.srcElement.src.endsWith('milk'))
-      {
-        element.srcElement.setAttribute('src','./assets/milkhover');
+  }
+
+  hoverAdditions(element: any) {
+    if (element.srcElement === document.getElementById('caramel')) {
+      if (element.srcElement.src.endsWith('caramel')) {
+        element.srcElement.setAttribute('src', './assets/caramelhover');
+      } else {
+        element.srcElement.setAttribute('src', './assets/caramel');
         this.aPrice += 1;
       }
-      else
-      {
-        element.srcElement.setAttribute('src','./assets/milk'); 
+    } else {
+      if (element.srcElement.src.endsWith('milk')) {
+        element.srcElement.setAttribute('src', './assets/milkhover');
+      } else {
+        element.srcElement.setAttribute('src', './assets/milk');
         this.aPrice -= 1;
       }
+=======
+  unhover(element: any, image: string) {
+    element.setAttribute('src', image);
     }
     this.tPrice = this.cPrice + this.aPrice;
   }
@@ -227,12 +286,8 @@ export class MenuComponent implements OnInit {
     let product: menuItem[] = this.itemsList.filter(
       (product) => product.id === id
     );
-    console.log(product);
-
     const modalRef = this.modalService.open(NgbdModalContent);
     modalRef.componentInstance.name = product[0];
 
   }
-
-
 }

@@ -11,7 +11,6 @@ import { ButtonModule } from 'primeng/button';
 
 
 
-
 @NgModule({
   declarations: [NavbarComponent, 
   MainComponent, HomeComponent],
