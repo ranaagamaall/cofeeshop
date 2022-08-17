@@ -56,7 +56,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
     </div>
     <div class="sizeContainer">
       <h3>Total</h3>
-      <h4 class="large" id="price"> $ {{this.tPrice}}</h4>
+      <h4 class="large" id="price"><span>$</span>{{this.tPrice}}</h4>
       
     </div>
   </div>
@@ -75,14 +75,18 @@ styleUrls:['./menu.component.scss']
 export class NgbdModalContent implements OnInit {
   @Input() name: any;     //product element
 
-  price : number =0;      //initial price
+  iPrice : number =0;      //initial price
+  cPrice : number =0;     //cup price upon customization
+  aPrice : number =0;     //addition price upon customization
   tPrice: number =0;      //accumulator for item price upon customization
+
 
   constructor(public activeModal: NgbActiveModal) {}
 
   ngOnInit(): void {
-    this.price = this.name.price;     //initialises the price with base price of the item
-    this.tPrice =0;
+    this.iPrice = this.name.price;     //initialises the price with base price of the item
+    // this.cPrice =this.iPrice;
+    // this.cPrice =0;
   }
   
   hover(element:any)
@@ -94,18 +98,19 @@ export class NgbdModalContent implements OnInit {
     }
     element.srcElement.setAttribute('src','./assets/coffeecuphover');
     const elId : string =element.srcElement.getAttribute('id');
-
-    if( elId == 'm'){
-      this.tPrice = this.price * 1.4;
-      this.tPrice.toFixed(2);
+    
+    if( elId == 'l'){
+      this.cPrice = this.iPrice * 1.8;
+      this.cPrice.toFixed(2);
     }
-    else if( elId == 'l'){
-      this.tPrice = this.price * 1.8;
-      this.tPrice.toFixed(2);
+    else if( elId == 'm'){
+      this.cPrice = this.iPrice * 1.4;
+      this.cPrice.toFixed(2);
     }
     else{
-      this.tPrice = this.price;
+      this.cPrice = this.iPrice;
     }
+    this.tPrice = this.cPrice + this.aPrice;
   }
 
   unhover(element:any,image:string)
@@ -134,10 +139,12 @@ export class NgbdModalContent implements OnInit {
       if(element.srcElement.src.endsWith('caramel'))
       {
         element.srcElement.setAttribute('src','./assets/caramelhover');
+        this.aPrice += 0.5;
       }
       else
       {
         element.srcElement.setAttribute('src','./assets/caramel'); 
+        this.aPrice -= 0.5;
       }
     }
     else
@@ -145,14 +152,16 @@ export class NgbdModalContent implements OnInit {
       if(element.srcElement.src.endsWith('milk'))
       {
         element.srcElement.setAttribute('src','./assets/milkhover');
+        this.aPrice += 1;
       }
       else
       {
         element.srcElement.setAttribute('src','./assets/milk'); 
+        this.aPrice -= 1;
       }
     }
+    this.tPrice = this.cPrice + this.aPrice;
   }
-
 }
 
 @Component({
