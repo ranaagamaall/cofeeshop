@@ -106,13 +106,15 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
           />
         </div>
       </div>
-      <div>
+      <div class="sizeContainer">
         <h3>Total</h3>
+      <h4 class="large" id="price"> $ {{this.tPrice}}</h4>
+      
       </div>
       <div class="modal-footer">
         <button
           type="button"
-          class="btn btn-outline-dark"
+          class="p-element p-ripple p-button-outlined p-button-rounded p-button-warning p-button p-component"
           (click)="activeModal.close('Close click')"
         >
           Add
@@ -122,20 +124,43 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   `,
   styleUrls: ['./menu.component.scss'],
 })
-export class NgbdModalContent {
-  @Input() name: any;
+export class NgbdModalContent implements OnInit {
+  @Input() name: any;     //product element
+
+  price : number =0;      //initial price
+  tPrice: number =0;      //accumulator for item price upon customization
+
 
   itemcount:number=1;
 
   disabled:boolean=false;
 
   constructor(public activeModal: NgbActiveModal) {}
+
+  ngOnInit(): void {
+    this.price = this.name.price;     //initialises the price with base price of the item
+    this.tPrice =0;
+  }
+  
   hover(element: any) {
     let ids = ['s', 'm', 'l'];
     for (let id of ids) {
       this.unhover(document.getElementById(id), './assets/coffeecup');
     }
     element.srcElement.setAttribute('src', './assets/coffeecuphover');
+    const elId : string =element.srcElement.getAttribute('id');
+
+    if( elId == 'm'){
+      this.tPrice = this.price * 1.4;
+      this.tPrice.toFixed(2);
+    }
+    else if( elId == 'l'){
+      this.tPrice = this.price * 1.8;
+      this.tPrice.toFixed(2);
+    }
+    else{
+      this.tPrice = this.price;
+    }
   }
 
   inc(){
@@ -250,5 +275,6 @@ export class MenuComponent implements OnInit {
     );
     const modalRef = this.modalService.open(NgbdModalContent);
     modalRef.componentInstance.name = product[0];
+
   }
 }
