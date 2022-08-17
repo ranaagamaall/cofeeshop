@@ -9,19 +9,53 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
   selector: 'ngbd-modal-content',
   template: `
     <div class="modal-header">
-      <h4 class="modal-title">{{name.name}}</h4>
-      <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+      <img [src]="name.image" class="imgForModal">
+      <div>
+        <div>
+          <h3 class="modal-title">{{ name.name }}</h3>
+        </div>
+        <div>
+          <p>{{ name.description }}!</p>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="activeModal.dismiss('Cross click')"
+      ></button>
     </div>
     <div class="modal-body">
-      <p>{{name.description}}!</p>
+    <div class="sizeContainer">
+      <h5>Item Count</h5>
+      </div>
+      <div class="sizeContainer">
+      <h5>Size</h5>
+      </div>
+      <div class="sizeContainer">
+      <h5>Sugar</h5>
+      </div>
+      <div class="sizeContainer">
+      <h5>Additions</h5>
+      </div>
+      <div>
+      <h3>Total</h3>
+      </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Add</button>
+      <button
+        type="button"
+        class="btn btn-outline-dark"
+        (click)="activeModal.close('Close click')"
+      >
+        Add
+      </button>
     </div>
-  `
+  `,
+  styleUrls:['./menu.component.scss']
 })
 export class NgbdModalContent {
-  @Input() name:any;
+  @Input() name: any;
 
   constructor(public activeModal: NgbActiveModal) {}
 }
@@ -52,11 +86,10 @@ export class MenuComponent implements OnInit {
   constructor(
     private myHTTP: HttpClient,
     private service: MenuService,
-    private modalService: NgbModal,
+    private modalService: NgbModal
   ) {}
 
   ngOnInit() {
-
     this.myHTTP
       .get(
         'https://coffee-menu123.herokuapp.com/api/products/all',
@@ -86,10 +119,12 @@ export class MenuComponent implements OnInit {
     }
     console.log(this.sortField);
   }
-  open(id:number) {
-    let product:menuItem[] = this.itemsList.filter(product => product.id === id );
+  open(id: number) {
+    let product: menuItem[] = this.itemsList.filter(
+      (product) => product.id === id
+    );
     console.log(product);
-    
+
     const modalRef = this.modalService.open(NgbdModalContent);
     modalRef.componentInstance.name = product[0];
   }
