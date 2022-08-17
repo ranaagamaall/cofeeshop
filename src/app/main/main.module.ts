@@ -7,7 +7,6 @@ import { MenuModule } from './menu/menu.module';
 import { HomeComponent } from './home/home.component';
 import { ButtonModule } from 'primeng/button';
 
->>>>>>> 8a0470c8bf74b14568f2c7818d71191dac251e5b
 
 
 
