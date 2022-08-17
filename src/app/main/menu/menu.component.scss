@@ -193,6 +193,35 @@
   margin: 8px;
 }
 
+.small{
+  height: 40px;
+  width: 40px;
+  margin-right: 8px;
+  align-self: flex-end;
+}
+
+.large{
+  height: 55px;
+  width: 55px;
+  margin-right: 8px;
+  align-self: flex-end;
+}
+
+.medium{
+  height: 48px;
+  width: 48px;
+  align-self: flex-end;
+  margin-right: 8px;
+}
+
+.Sizes{
+  display: flex;
+}
+
 .sizeContainer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border-bottom: lightgray 2px solid;
+  margin-bottom: 10px;
 }
