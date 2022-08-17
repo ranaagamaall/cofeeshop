@@ -40,7 +40,7 @@
                         <span [class]="'product-badge status-' + product.inventoryStatus?.toLowerCase()">{{product.inventoryStatus}}</span>
                     </div>
                     <div class="product-grid-item-content">
-                        <img [src]="product.image" [alt]= "product.name" alt="Not Found"/>
+                        <img [src]="product.image || this.defaultImage" [alt]= "product.name" alt="Not Found"/>
                         <div class="product-name">{{product.name}}</div>
                         <div class="product-description">{{product.description}}</div>
                         <!-- <p-rating [ngModel]="product.rating" [readonly]= "true" [cancel]= "false"></p-rating> -->

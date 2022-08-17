@@ -9,6 +9,7 @@ import { menuItem } from './menuItem';
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent implements OnInit {
+  defaultImage = '../../../assets/noImage.jpg'
   itemsList: menuItem[] = [];
   private myURL: string = 'http://localhost:3000/items';
 
