@@ -155,10 +155,10 @@ export class NgbdModalContent implements OnInit {
     const elId : string =element.srcElement.getAttribute('id');
     
     if( elId == 'l'){
-      this.cPrice = this.iPrice * 1.8;
+      this.cPrice = this.iPrice + 1;
     }
     else if( elId == 'm'){
-      this.cPrice = this.iPrice * 1.4;
+      this.cPrice = this.iPrice + 2;
     }
     else{
       this.cPrice = this.iPrice;
@@ -178,7 +178,7 @@ export class NgbdModalContent implements OnInit {
     if(this.itemcount !== 1)
     {
       this.itemcount--;
-      this.tPrice = (this.cPrice + this.aPrice)* this.itemcount;
+      this.tPrice = ((this.cPrice + this.aPrice)* this.itemcount);
       this.tPrice.toFixed(2);
     }
     if(this.itemcount === 1)
