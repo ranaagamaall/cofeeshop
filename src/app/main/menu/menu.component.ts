@@ -155,31 +155,28 @@ export class NgbdModalContent implements OnInit {
     const elId : string =element.srcElement.getAttribute('id');
     
     if( elId == 'l'){
-      this.cPrice = this.iPrice + 1;
+      this.cPrice = (this.iPrice * 1.8);
     }
     else if( elId == 'm'){
-      this.cPrice = this.iPrice + 2;
+      this.cPrice = (this.iPrice * 1.4);
     }
     else{
       this.cPrice = this.iPrice;
     }
-    this.tPrice = (this.cPrice + this.aPrice)* this.itemcount;
-    this.tPrice.toFixed(2);
+    this.priceEst();
   }
 
   inc(){
     this.itemcount++;
     this.disabled=false;
-    this.tPrice = (this.cPrice + this.aPrice)* this.itemcount;
-    this.tPrice.toFixed(2);
+    this.priceEst();
   }
 
   dec(){
     if(this.itemcount !== 1)
     {
       this.itemcount--;
-      this.tPrice = ((this.cPrice + this.aPrice)* this.itemcount);
-      this.tPrice.toFixed(2);
+      this.priceEst();
     }
     if(this.itemcount === 1)
     {
@@ -221,8 +218,11 @@ export class NgbdModalContent implements OnInit {
         this.aPrice -= 1;
       }
     }
-    this.tPrice = (this.cPrice + this.aPrice)* this.itemcount;
-    this.tPrice.toFixed(2);
+    this.priceEst();
+  }
+
+  priceEst(){
+    this.tPrice = Math.round((this.cPrice + this.aPrice)* this.itemcount * 100) /100;
   }
 }
 
