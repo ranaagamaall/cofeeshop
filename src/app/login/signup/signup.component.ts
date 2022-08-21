@@ -23,7 +23,6 @@ export class SignupComponent implements OnInit {
   ) {}
 
   usersList: any[] = [];
-  valid:boolean = false;
 
   private myURL = 'http://localhost:3000/users';
 
@@ -69,7 +68,6 @@ export class SignupComponent implements OnInit {
           .subscribe(
             (data)=>{
               console.log(data);
-              this.valid=true;  
             },
             (error)=>{
               if(error instanceof HttpErrorResponse && error.status === 400){
@@ -78,9 +76,21 @@ export class SignupComponent implements OnInit {
                   summary: 'Error',
                   detail: error.error,
                 });
-                console.log(error.error)
-              }});
-        
+                console.log(error.error);
+              }
+              if(error.error.text === "User registered successfully!")
+              {
+                setTimeout(()=>{
+                  this.router.navigate(['../']);
+                },3000);
+                this.msgService.add({
+                  severity: 'success',
+                  summary: 'Success',
+                  detail: `${error.error.text}. You will be redirected to login shortly`,
+                });
+              }
+            }
+          )
     } 
     else if (f.value.password !== f.value.pass2) {
         this.msgService.add({
@@ -88,13 +98,6 @@ export class SignupComponent implements OnInit {
           summary: 'Error',
           detail: 'Password Mismatch',
         });
-    }
-
-    console.log(this.valid);
-
-    if(this.valid)
-    {
-      this.router.navigate(['../']);
     }
   }
 

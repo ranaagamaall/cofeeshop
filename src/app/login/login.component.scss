@@ -24,6 +24,13 @@ button:hover{
     background-color: #d6ab74 !important;
 }
 
+div.form{
+    min-height: 77vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .p-inputtext:enabled:focus{
     border-color: #d6ab74;
     box-shadow: none;
