@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SelectItem } from 'primeng/api';
+import { SelectItem, MessageService } from 'primeng/api';
 import { MenuService } from 'src/app/services/menu.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { menuItem } from './menuItem';
@@ -115,7 +115,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
         <button
           type="button"
           class="p-element p-ripple p-button-outlined p-button-rounded p-button-warning p-button p-component"
-          (click)="activeModal.close('Close click')"
+          (click)="addToCart(name)"
         >
           Add
         </button>
@@ -123,6 +123,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
     </div>
   `,
   styleUrls: ['./menu.component.scss'],
+  providers: [MessageService],
 })
 export class NgbdModalContent implements OnInit {
   @Input() name: any;     //product element
@@ -132,13 +133,15 @@ export class NgbdModalContent implements OnInit {
   aPrice : number =0;     //addition price upon customization
   tPrice: number =0;      //accumulator for item price upon customization
 
-
+  
   itemcount:number=1;
-
+  
   disabled:boolean=false;
+  
+  storedCart:any[] = [];
 
-
-  constructor(public activeModal: NgbActiveModal) {}
+  constructor(public activeModal: NgbActiveModal,
+              private msgService: MessageService) {}
 
   ngOnInit(): void {
     this.iPrice = this.name.price;     //initialises the price with base price of the item
@@ -223,6 +226,36 @@ export class NgbdModalContent implements OnInit {
 
   priceEst(){
     this.tPrice = Math.round((this.cPrice + this.aPrice)* this.itemcount * 100) /100;
+  }
+
+  addToCart(name: any)
+  {
+    if(!(localStorage.getItem("cart")))
+    {
+      let cart = [];
+      name.itemCount = this.itemcount;
+      name.totalPrice = this.tPrice;
+      cart.push(name);
+      localStorage.setItem("cart",JSON.stringify(cart));
+    }
+    else
+    {
+      let stored = (localStorage.getItem("cart"))!;
+      this.storedCart = JSON.parse(stored);
+      name.itemCount = this.itemcount;
+      name.totalPrice = this.tPrice;
+      this.storedCart.push(name);
+      console.log(this.storedCart);
+      localStorage.setItem("cart",JSON.stringify(this.storedCart));
+    }
+    setTimeout(()=>{
+      this.activeModal.close('Close click')
+    },0);
+    /*this.msgService.add({
+      severity: 'success',
+      summary: 'Success',
+      detail: `${name.name} is added to your cart successfully.`,
+    })*/
   }
 }
 

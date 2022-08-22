@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
   HandleClick(item: any){
     if(item.header === 'Log Out')
     {
-      localStorage.clear();
+      localStorage.removeItem("accessToken");
       this.router.navigate(['../../login'])
     }
     
