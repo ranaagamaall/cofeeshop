@@ -1,23 +1,40 @@
+ // Breakpoints
+ $sm: 400px;
+ $md: 640px;
+
+.container{
+    padding: 0;
+ }
+
 img.cup{
     position: absolute;
     top: 50px;
     right: 0px;
-    height: 100%;
+    height: 93vh;
     width: 50%;
+
+    @media screen and (max-width: $sm){
+        width: 100%;
+        height: 55vh; 
+    }
+
 }
 
 img.texture{
     position: absolute;
     top: 50px;
     left: 0px;
-    height: 100%;
+    height: 93vh;
+    width: 50%;
+
+    @media screen and (max-width: $sm){
+        width: 100%;
+        height: 50vh; 
+        position: relative;
+        top: 18vh;
+    }
 }
 
-.container{
-    min-height: 93vh;
-    background-color: #c39976c9;
-    opacity: 90%;
-}
 
 .circle{
     background: #fffbf4;
@@ -33,6 +50,25 @@ img.texture{
     padding: 25vh 7vh;
     text-align: center;
     z-index: 1;
+
+    //tablet display
+
+    //mobile display
+    @media screen and (max-width: $sm){
+        width: 32vh;
+        height: 30vh; 
+        padding: 0;
+        position: relative;
+        top: 55vh;
+        left: 7vh;
+    }
+}
+
+.logo{
+    @media screen and (max-width: $sm){
+        padding-top: 20%;
+        padding-bottom: 5%;
+    }
 }
 
 .title{
@@ -41,17 +77,47 @@ img.texture{
     color: #a2845e;
     font-size: 4rem;
     margin: 0;
+
+    @media screen and (max-width: $sm) {
+        font-size: 1.5rem; 
+        letter-spacing: 2px;
+    }
 }
 
 .slogan{
     font-family: 'Merriweather Sans', sans-serif;
     font-weight: 400;
     color: #6c420c;
+    font-size: 0.5rem; 
+    letter-spacing: 2px;
+
+    @media screen and (max-width: $sm) {
+        font-size: 0.5rem; 
+        letter-spacing: 2px;
+    }
 }
 
 .download{
     margin: 10px 6px !important;
+
+    @media screen and (max-width: $sm) {
+        width: 70%;
+        height: 5%;
+        font-size: 0.8rem;
+        padding: 3%;
+        margin: 3px !important;
+    }
 }
+
+.button-holder{
+    @media screen and (max-width: $sm){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 19%;
+    }
+}
+
 
 .shop{
     position: absolute;

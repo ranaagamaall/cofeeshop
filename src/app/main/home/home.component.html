@@ -1,18 +1,22 @@
 
 <div class="container">
-    <div class="circle animate__animated animate__zoomIn">
-         <h1 class="title">Coffeeshop</h1>
-        <p class="slogan">Get coffee, buy time</p>
-        <button pButton type="button" 
-        class="download p-button-rounded p-button-warning p-button-outlined" label="Download" icon="pi pi-apple"></button>
-        <button pButton type="button" 
-        class="download p-button-rounded p-button-warning p-button-outlined" label="Download" icon="pi pi-google"></button>
+        <div class="circle animate__animated animate__zoomIn">
+            <div  class="logo">
+                <h1 class="title">Coffeeshop</h1>
+                <p class="slogan">Get coffee, buy time</p>
+            </div>
+           <div class="button-holder">
+            <button pButton type="button" 
+                class="download p-button-rounded p-button-warning p-button-outlined" label="Download" icon="pi pi-apple"></button>
+                <button pButton type="button" 
+                class="download p-button-rounded p-button-warning p-button-outlined" label="Download" icon="pi pi-google"></button>
+           </div>
+       </div>
+    <div>
+        <img class="cup" src="../../../assets/cup.jpg" alt="">
     </div>
     <div>
         <img class="texture" src="../../../assets/gold-texture2.jpg" alt="">
-    </div>
-    <div>
-        <img class="cup" src="../../../assets/cup.jpg" alt="">
     </div>
     <button pButton type="button"
     class="shop p-button-rounded p-button-warning p-button" label="Shop" icon="pi pi-arrow-right" (click)= "handleClick()"></button>
