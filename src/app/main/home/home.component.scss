@@ -1,5 +1,5 @@
  // Breakpoints
- $sm: 400px;
+ $sm: 600px;
  $md: 640px;
 
 .container{
@@ -60,7 +60,8 @@ img.texture{
         padding: 0;
         position: relative;
         top: 55vh;
-        left: 7vh;
+        margin: auto;
+        left: 0;
     }
 }
 
