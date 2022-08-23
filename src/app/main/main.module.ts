@@ -6,9 +6,7 @@ import { MainComponent } from './main.component';
 import { MenuModule } from './menu/menu.module';
 import { HomeComponent } from './home/home.component';
 import { ButtonModule } from 'primeng/button';
-
-
-
+import { CartModule } from './cart/cart.module';
 
 
 @NgModule({
@@ -18,7 +16,8 @@ import { ButtonModule } from 'primeng/button';
     CommonModule,
     MainRoutingModule,
     MenuModule,
-    ButtonModule
+    ButtonModule,
+    CartModule
   ],
   exports: [NavbarComponent,
     MainComponent]

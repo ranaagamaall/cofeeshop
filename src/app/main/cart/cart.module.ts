@@ -8,17 +8,14 @@ import {InputTextModule} from 'primeng/inputtext';
 import {RatingModule} from 'primeng/rating';
 import {DropdownModule} from 'primeng/dropdown';
 import {TabViewModule} from 'primeng/tabview';
-import {ToastModule} from 'primeng/toast';
 
-import { MenuRoutingModule } from './menu-routing.module';
-import { MenuComponent } from './menu.component';
+import { CartComponent } from './cart.component';
 
 
 @NgModule({
-  declarations: [MenuComponent],
+  declarations: [CartComponent],
   imports: [
     CommonModule,
-    MenuRoutingModule,
     DataViewModule,
     FormsModule,
     ButtonModule,
@@ -26,8 +23,7 @@ import { MenuComponent } from './menu.component';
     InputTextModule,
     RatingModule,
     DropdownModule,
-    TabViewModule,
-    ToastModule
+    TabViewModule
   ]
 })
-export class MenuModule { }
+export class CartModule { }

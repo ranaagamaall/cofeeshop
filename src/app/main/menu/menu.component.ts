@@ -128,10 +128,10 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class NgbdModalContent implements OnInit {
   @Input() name: any;     //product element
 
-  iPrice : number =0;      //initial price
-  cPrice : number =0;     //cup price upon customization
-  aPrice : number =0;     //addition price upon customization
-  tPrice: number =0;      //accumulator for item price upon customization
+  iPrice : number = 0;      //initial price
+  cPrice : number = 0;     //cup price upon customization
+  aPrice : number = 0;     //addition price upon customization
+  tPrice: number = 0;      //accumulator for item price upon customization
 
   
   itemcount:number=1;
@@ -139,6 +139,10 @@ export class NgbdModalContent implements OnInit {
   disabled:boolean=false;
   
   storedCart:any[] = [];
+
+  choseSize: boolean = false;
+
+  choseSugarPreference: boolean = false;
 
   constructor(public activeModal: NgbActiveModal,
               private msgService: MessageService) {}
@@ -155,7 +159,7 @@ export class NgbdModalContent implements OnInit {
       this.unhover(document.getElementById(id), './assets/coffeecup');
     }
     element.srcElement.setAttribute('src', './assets/coffeecuphover');
-    const elId : string =element.srcElement.getAttribute('id');
+    const elId : string = element.srcElement.getAttribute('id');
     
     if( elId == 'l'){
       this.cPrice = (this.iPrice * 1.8);
@@ -166,6 +170,7 @@ export class NgbdModalContent implements OnInit {
     else{
       this.cPrice = this.iPrice;
     }
+    this.choseSize = true;
     this.priceEst();
   }
 
@@ -199,8 +204,8 @@ export class NgbdModalContent implements OnInit {
     } else {
       this.unhover(document.getElementById('ns'), './assets/nosugar');
       element.srcElement.setAttribute('src', './assets/withsugarhover');
-        this.aPrice -= 0.5;
     }
+    this.choseSugarPreference = true;
   }
 
   hoverAdditions(element: any) {
@@ -230,32 +235,43 @@ export class NgbdModalContent implements OnInit {
 
   addToCart(name: any)
   {
-    if(!(localStorage.getItem("cart")))
+    if(this.choseSize && this.choseSugarPreference)
     {
-      let cart = [];
-      name.itemCount = this.itemcount;
-      name.totalPrice = this.tPrice;
-      cart.push(name);
-      localStorage.setItem("cart",JSON.stringify(cart));
+      if(!(localStorage.getItem("cart")))
+      {
+        let cart = [];
+        name.itemCount = this.itemcount;
+        name.totalPrice = this.tPrice;
+        cart.push(name);
+        localStorage.setItem("cart",JSON.stringify(cart));
+      }
+      else
+      {
+        let stored = (localStorage.getItem("cart"))!;
+        this.storedCart = JSON.parse(stored);
+        name.itemCount = this.itemcount;
+        name.totalPrice = this.tPrice;
+        this.storedCart.push(name);
+        console.log(this.storedCart);
+        localStorage.setItem("cart",JSON.stringify(this.storedCart));
+      }
+      setTimeout(()=>{
+        this.activeModal.close('Close click')
+      },0);
+      /*this.msgService.add({
+        severity: 'success',
+        summary: 'Success',
+        detail: `${name.name} is added to your cart successfully.`,
+      })*/
     }
     else
     {
-      let stored = (localStorage.getItem("cart"))!;
-      this.storedCart = JSON.parse(stored);
-      name.itemCount = this.itemcount;
-      name.totalPrice = this.tPrice;
-      this.storedCart.push(name);
-      console.log(this.storedCart);
-      localStorage.setItem("cart",JSON.stringify(this.storedCart));
+      this.msgService.add({
+        severity: 'error',
+        summary: 'Error adding item',
+        detail: `is added to your cart successfully.`,
+      })
     }
-    setTimeout(()=>{
-      this.activeModal.close('Close click')
-    },0);
-    /*this.msgService.add({
-      severity: 'success',
-      summary: 'Success',
-      detail: `${name.name} is added to your cart successfully.`,
-    })*/
   }
 }
 

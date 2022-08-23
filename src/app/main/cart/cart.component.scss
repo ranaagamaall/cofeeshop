@@ -1,0 +1,251 @@
+:host ::ng-deep {
+    .p-button {
+      background-color: #ff9002c2;
+      border-color: #ff8f00;
+    }
+
+    .p-button:hover {
+      background-color: #ff8f00;
+      border-color: #ff8f00;
+    }
+
+    .list {
+      background-color: #ece3d8;
+      min-height: calc(100vh - 80px);
+    }
+
+    .p-dataview .p-dataview-emptymessage,
+    .p-dataview .p-dataview-content {
+      min-height: 70vh;
+      background-color: #ece3d8;
+      ;
+    }
+  
+    .p-dataview .p-dataview-header {
+      background-color: #fffbf4;
+    }
+  
+    .p-dropdown {
+      width: 14rem;
+      font-weight: normal;
+    }
+  
+    .p-dropdown:focus{
+      box-shadow: none !important;
+    }
+  
+    .p-selectbutton .p-button.p-highlight{
+      background-color: #ff9002c2;
+      border-color: #ff8f00;
+    }
+  
+    .p-selectbutton .p-button.p-highlight:hover{
+      background-color: #ff8f00;
+    }
+  
+    .p-dataview .p-paginator-bottom {
+      background-color: #fffbf4;
+    }
+  
+    .p-button:focus{
+      box-shadow: none;
+    }
+  
+    .product-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #a2845e;
+    }
+  
+    .product-description {
+      margin: 0 0 1rem 0;
+      color: #6c420c;
+      min-height: 6vh;
+    }
+  
+    .product-category-icon {
+      vertical-align: middle;
+      margin-right: .5rem;
+    }
+  
+    .product-category {
+      font-weight: 600;
+      vertical-align: middle;
+    }
+  
+    .product-list-item {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      width: 100%;
+      background-color: #fffbf4;
+  
+      img {
+        width: 150px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        margin-right: 2rem;
+        height: 150px;
+      }
+  
+      .product-list-detail {
+        flex: 1 1 0;
+      }
+  
+      .p-rating {
+        margin: 0 0 .5rem 0;
+      }
+  
+      .product-price {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: .5rem;
+        align-self: flex-end;
+      }
+  
+      .product-list-action {
+        display: flex;
+        flex-direction: column;
+      }
+  
+      .p-button:hover {
+        background-color: #ff8f00;
+      }
+  
+    }
+  
+    .product-grid-item {
+      margin: .5em;
+      border: 1px solid var(--surface-border);
+      background-color: #fffbf4;
+      height: 96%;
+      border-radius: 5%;
+      border: none;
+      margin: 3% 10%;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0  1px 1px rgba(0, 0, 0, 0.23);
+  
+      .product-grid-item-top,
+      .product-grid-item-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 1% 5%;
+      }
+  
+      img {
+        width: 75%;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        margin: 2rem 0;
+        height: 220px;
+        border-radius: 50%;
+      }
+  
+      .product-grid-item-content {
+        text-align: center;
+      }
+  
+      .product-price {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #6c420c  !important;
+      }
+  
+      .p-button {
+        background-color: #ff9002c2;
+        border-color: #ff8f00;
+      }
+  
+      .p-button:hover {
+        background-color: #ff8f00;
+      }
+  
+    }
+  }
+  
+  
+  
+  @media screen and (max-width: 576px) {
+    :host ::ng-deep .product-list-item {
+      flex-direction: column;
+      align-items: center;
+  
+      img {
+        width: 75%;
+        margin: 2rem 0;
+      }
+  
+      .product-list-detail {
+        text-align: center;
+      }
+  
+      .product-price {
+        align-self: center;
+      }
+  
+      .product-list-action {
+        display: flex;
+        flex-direction: column;
+      }
+  
+      .product-list-action {
+        margin-top: 2rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+    }
+  }
+  
+  .imgForModal
+  {
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50%;
+    margin: 8px;
+  }
+  
+  .small{
+    height: 40px;
+    width: 40px;
+    margin-right: 8px;
+    align-self: flex-end;
+  }
+  
+  .large{
+    height: 55px;
+    width: 55px;
+    margin-right: 8px;
+    align-self: flex-end;
+  }
+  
+  .medium{
+    height: 48px;
+    width: 48px;
+    align-self: flex-end;
+    margin-right: 8px;
+  }
+  
+  .Sizes{
+    display: flex;
+  }
+  
+  .sizeContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: lightgray 2px solid;
+    margin-bottom: 10px;
+  }
+  
+  .countControllers{
+    display: flex;
+    align-items: center;
+  }
+
+  #left {
+    margin-right: 10px;
+  }
+
+  #right {
+    margin-left: 10px;
+  }
