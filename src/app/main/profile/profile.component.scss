@@ -1,0 +1,38 @@
+.card {
+    background-color: #fffbf4;
+    margin: auto;
+    min-width: 50%;
+    max-width: 80%;
+}
+
+.avatar {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profileContainer {
+    background-color: #ece3d8;
+    min-height: calc(100vh - 50px);
+}
+
+.data {
+    margin: 5px 15px;
+}
+
+button {
+    margin-bottom: .5rem !important;
+    background-color: #ff9002c2 !important;
+    border: #ff8f00 !important;
+    min-width: 114px;
+    min-height: 50px;
+    border-radius: 7px;
+    color: white;
+    font-weight: bolder;
+    margin: 5px 15px;
+    float: right;
+  }
+
+button:hover {
+    background-color: #ff8f00 !important;
+  }

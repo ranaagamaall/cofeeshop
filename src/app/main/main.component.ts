@@ -18,8 +18,7 @@ export class MainComponent implements OnInit {
     {header : 'Home',command : 'home', icon: "pi pi-home"},
     {header : 'Menu', command : 'menu',icon: "pi pi-list"}, 
     {header : 'Cart', command : 'cart', icon: "pi pi-shopping-cart"}, 
-    {header : 'Log Out', command : 'logout', icon: "pi pi-user"}
-
+    {header : 'Profile',command : 'profile', icon: "pi pi-user"}
   ];
 
 }

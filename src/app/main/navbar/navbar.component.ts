@@ -18,14 +18,4 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  HandleClick(item: any){
-    if(item.header === 'Log Out')
-    {
-      localStorage.removeItem("accessToken");
-      this.router.navigate(['../../login'])
-    }
-    
-  }
-
-
 }

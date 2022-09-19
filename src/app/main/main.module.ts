@@ -7,17 +7,19 @@ import { MenuModule } from './menu/menu.module';
 import { HomeComponent } from './home/home.component';
 import { ButtonModule } from 'primeng/button';
 import { CartModule } from './cart/cart.module';
-
+import { ProfileComponent } from './profile/profile.component';
+import {AvatarModule} from 'primeng/avatar';
 
 @NgModule({
   declarations: [NavbarComponent, 
-  MainComponent, HomeComponent],
+  MainComponent, HomeComponent, ProfileComponent],
   imports: [
     CommonModule,
     MainRoutingModule,
     MenuModule,
     ButtonModule,
-    CartModule
+    CartModule,
+    AvatarModule
   ],
   exports: [NavbarComponent,
     MainComponent]
