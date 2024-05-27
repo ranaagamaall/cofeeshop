@@ -10,7 +10,7 @@ img.cup{
     position: absolute;
     top: 50px;
     right: 0px;
-    height: 93vh;
+    height: 92vh;
     width: 50%;
 
     @media screen and (max-width: $sm){
@@ -24,7 +24,7 @@ img.texture{
     position: absolute;
     top: 50px;
     left: 0px;
-    height: 93vh;
+    height: 92.5vh;
     width: 50%;
 
     @media screen and (max-width: $sm){
@@ -89,7 +89,7 @@ img.texture{
     font-family: 'Merriweather Sans', sans-serif;
     font-weight: 400;
     color: #6c420c;
-    font-size: 0.5rem; 
+    font-size: 1rem; 
     letter-spacing: 2px;
 
     @media screen and (max-width: $sm) {
