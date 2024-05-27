@@ -7,6 +7,6 @@ import {DataService} from "./data.service";
 })
 export class SignupService extends DataService {
   constructor(http: HttpClient) {
-    super('https://coffee-menu123.herokuapp.com/api/authentication/create', http);
+    super('https://coffee-shop-backend-rb8i.onrender.com/api/authentication/create', http);
   }
 }

@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(){
     this.myHTTP
       .get(
-        `https://coffee-menu123.herokuapp.com/api/user/byToken/${localStorage.getItem('accessToken')}`,
+        `https://coffee-shop-backend-rb8i.onrender.com/api/user/byToken/${localStorage.getItem('accessToken')}`,
         this.requestOptions
       )
       .subscribe((response: any) => {

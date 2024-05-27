@@ -307,7 +307,7 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.myHTTP
       .get(
-        'https://coffee-menu123.herokuapp.com/api/products/all',
+        'https://coffee-shop-backend-rb8i.onrender.com/api/products/all',
         this.requestOptions
       )
       .subscribe((response: any) => {

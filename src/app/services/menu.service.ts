@@ -7,6 +7,6 @@ import {DataService} from "./data.service";
 })
 export class MenuService extends DataService {
   constructor(http: HttpClient) {
-    super('http://localhost:3000/items', http);
+    super('https://coffee-shop-backend-rb8i.onrender.com/api/products/all', http);
   }
 }

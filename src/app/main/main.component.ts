@@ -18,7 +18,7 @@ export class MainComponent implements OnInit {
     if(localStorage.getItem('accessToken'))
       {
         console.log(localStorage.getItem('accessToken'));
-        profile = 'PSrofile';
+        profile = 'Profile';
         route = 'profile';
       }
       else{

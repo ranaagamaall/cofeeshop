@@ -64,10 +64,10 @@ export class SignupComponent implements OnInit {
         /*this.service
           .create(f.value)
           .subscribe((data) => this.usersList.push(data));*/
-          this.myHTTP.post('https://coffee-menu123.herokuapp.com/api/authentication/create',f.value)
+          this.myHTTP.post('https://coffee-shop-backend-rb8i.onrender.com/api/authentication/create',f.value)
           .subscribe(
-            (data)=>{
-              console.log(data);
+            (response) => {
+              console.log(response);
             },
             (error)=>{
               if(error instanceof HttpErrorResponse && error.status === 400){
@@ -81,7 +81,7 @@ export class SignupComponent implements OnInit {
               if(error.error.text === "User registered successfully!")
               {
                 setTimeout(()=>{
-                  this.router.navigate(['../']);
+                  this.router.navigate(['../login']);
                 },3000);
                 this.msgService.add({
                   severity: 'success',
