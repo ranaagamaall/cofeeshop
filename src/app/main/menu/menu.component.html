@@ -14,7 +14,7 @@
     </ng-template>
     <ng-template let-product pTemplate="listItem">
       <div class="col-12">
-        <div class="product-list-item" (click)="open(product.id)">
+        <div class="product-list-item" >
           <img [src]="product.image" [alt]="product.name" alt="Not Found" />
           <div class="product-list-detail">
             <div class="product-name">{{product.name}}</div>
@@ -25,7 +25,7 @@
           <div class="product-list-action">
             <span class="product-price">${{product.price}}</span>
             <p-button icon="pi pi-shopping-cart" label="Add to Cart"
-              [disabled]="product.inventoryStatus === 'OUTOFSTOCK'"></p-button>
+              [disabled]="product.inventoryStatus === 'OUTOFSTOCK'" (click)="open(product.id)"></p-button>
             <span
               [class]="'product-badge status-' + product.inventoryStatus?.toLowerCase()">{{product.inventoryStatus}}</span>
           </div>
@@ -43,7 +43,7 @@
             <span
               [class]="'product-badge status-' + product.inventoryStatus?.toLowerCase()">{{product.inventoryStatus}}</span>
           </div>
-          <div class="product-grid-item-content" (click)="open(product.id)">
+          <div class="product-grid-item-content" >
             <img [src]="product.image || this.defaultImage" [alt]="product.name" alt="Not Found" />
             <div class="product-name">{{product.name}}</div>
             <div class="product-description">{{product.description}}</div>
@@ -51,7 +51,7 @@
           </div>
           <div class="product-grid-item-bottom">
             <span class="product-price">${{product.price}}</span>
-            <p-button icon="pi pi-shopping-cart" [disabled]="product.inventoryStatus === 'OUTOFSTOCK'"></p-button>
+            <p-button icon="pi pi-shopping-cart" [disabled]="product.inventoryStatus === 'OUTOFSTOCK'" (click)="open(product.id)"></p-button>
           </div>
         </div>
       </div>
