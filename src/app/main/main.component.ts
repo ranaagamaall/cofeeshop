@@ -18,12 +18,12 @@ export class MainComponent implements OnInit {
     if(localStorage.getItem('accessToken'))
       {
         console.log(localStorage.getItem('accessToken'));
-        profile = 'profile';
+        profile = 'PSrofile';
         route = 'profile';
       }
       else{
         console.log(localStorage.getItem('accessToken'));
-        profile = 'login';
+        profile = 'Login';
         route = '../login';
       }
     
