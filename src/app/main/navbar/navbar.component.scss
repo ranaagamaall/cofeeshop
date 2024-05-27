@@ -3,8 +3,16 @@ div {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  border: 1px solid #e7e7e7;
-  background-color: #68A7AD;
+  background-color: transparent;
+  position: relative;
+  z-index: 4;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.25);
+  // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+
 }
 
 li {
@@ -14,19 +22,23 @@ li {
 a {
   display: block;
   float: left;
-  color: #fffbf4;
+  color: #6c420c;
+  font-weight: 500;
+  font-size: 1.2rem;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  width: max-content;
 }
 
 a:hover:not(.active) {
-  background-color: #83bdc3;
+  text-decoration: underline;
 }
 
 a.active {
-  color: white;
-  background-color: #3d868e;
+  color: #6c420c;
+  font-weight: 900;
+  scale: 1.1;
 }
 
 a.left {

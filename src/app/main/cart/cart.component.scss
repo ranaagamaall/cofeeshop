@@ -1,4 +1,16 @@
 :host ::ng-deep {
+    .pill{
+      background-color: #a2845e69;
+      padding: 0 1.5rem;
+      border-radius: 2rem;
+      margin-right: 4rem;
+      
+    }
+    .total{
+      font-size: 1.5rem;
+      color: #6c420c;
+      font-weight: 500;
+    }
     .p-button {
       background-color: #ff9002c2;
       border-color: #ff8f00;
